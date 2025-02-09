@@ -1,0 +1,62 @@
+/* General App container styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  max-width: 480px; /* Maximum width for mobile */
+  margin: 0 auto; /* Centers the container */
+  overflow: hidden;
+}
+
+/* Apply background image only on larger screens (laptop/tablet) */
+@media (min-width: 1024px) {
+  .app-container {
+    background-image: url("https://cdnb.artstation.com/p/assets/images/images/041/601/775/original/ida-franzen-karlsson-background-animation.gif?1632167232");
+    background-size: cover; /* Ensures the image covers the whole container */
+    background-position: center;
+    max-width: 100%; /* Maximum width for larger screens */
+
+  }
+}
+
+/* Header (top section) */
+.app-header {
+  flex-shrink: 0;
+  position: sticky;
+  width: 480px;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+/* Content section that takes up remaining space */
+.app-content {
+  background-color: white;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  max-width: 480px;
+  width: 100%;
+}
+
+/* Footer (bottom section) */
+.app-footer {
+  flex-shrink: 0;
+  position: sticky;
+  max-width: 480px;
+
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+/* Styles for mobile (max-width 480px) */
+@media (max-width: 480px) {
+  .app-container {
+    max-width: 100%; /* For mobile devices, we can take full width */
+    padding: 1rem; /* Optionally, add some padding */
+  }
+}
