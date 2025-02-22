@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { InputFieldReward } from "./InputFieldReward";
 import apiClient from "../../api/apiClient";
 
-function RewardForm({ onClose, id, reward, note, onUpdate }) {
+function RewardForm({ onClose, id, reward, note,is_missing, onUpdate }) {
   const [rewardAmount, setRewardAmount] = useState("");
   const [noteContent, setNoteContent] = useState("");
 
@@ -51,7 +51,7 @@ function RewardForm({ onClose, id, reward, note, onUpdate }) {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col p-5 w-[90%] sm:max-w-lg md:max-w-lg bg-white rounded-lg shadow-lg relative"
+        className="flex flex-col p-5 w-[115%] sm:max-w-xl md:max-w-2xl bg-white rounded-lg shadow-lg relative"
       >
         <button
           type="button"
@@ -97,13 +97,14 @@ function RewardForm({ onClose, id, reward, note, onUpdate }) {
           onChange={(e) => setNoteContent(e.target.value)}
           className="w-full"
         />
+      { is_missing ? (
+      <div className="flex flex-col gap-4 mt-5 w-full max-w-[560px]">
         <button
             type="submit"
-            className="w-full px-6 py-3 mt-4 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700"
+            className="w-full px-6 py-3 mt-4 text-white bg-blue-600 rounded-lg hover:bg-indigo-700"
           >
             Save Changes
           </button>
-           {/* Report as Found Button */}
         <button
           type="button"
           onClick={handleReportAsFound}
@@ -111,6 +112,17 @@ function RewardForm({ onClose, id, reward, note, onUpdate }) {
         >
           Report as Found
         </button>
+        </div>
+      ):(
+        <div className="flex flex-col gap-4 mt-5 w-full max-w-[560px]">
+        <button
+            type="submit"
+            className="w-full px-6 py-3 mt-4 text-white bg-blue-600 rounded-lg hover:bg-indigo-700"
+          >
+            Submit
+          </button>
+        </div>
+      )}
       </form>
     </div>
   );

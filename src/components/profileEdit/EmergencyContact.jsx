@@ -4,9 +4,7 @@ import { InputField } from "./InputField";
 export function EmergencyContact({
   contacts,
   onInputChange,
-  onAddContact,
-  onDeleteContact,
-}) {
+  }) {
   // Predefined list of relationship options
   const relationships = [
     "Father", "Mother", "Brother", "Sister", "Spouse", "Friend", "Colleague", "Other"
@@ -35,7 +33,7 @@ export function EmergencyContact({
           
           {/* Relationship dropdown */}
           <div className="my-4">
-            <label htmlFor={`relationship-${index}`} className="block text-sm font-medium text-zinc-700">
+            <label htmlFor={`relationship-${index}`} className="block text-sm font-medium text-gray-600">
               Relationship
             </label>
             <select
@@ -54,16 +52,6 @@ export function EmergencyContact({
           </div>
         </div>
       ))}
-      {/* Add contact button */}
-      {/* {contacts && contacts.length < 2 && (
-        <button
-          type="button"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={onAddContact}
-        >
-          Add Another Contact
-        </button>
-      )} */}
     </>
   );
 }

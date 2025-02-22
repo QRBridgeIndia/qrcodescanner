@@ -1,16 +1,15 @@
 import React from "react";
 import { useCustomNavigate } from "../../functions/navigate";
-import { useQueryData } from "../../functions/useQueryData";
 
 function CategoryItem({ id,title, items,qrCodeId, className = "" }) {
   const navigate = useCustomNavigate();
   return (
     <div
       onClick={() => navigate("/qr-details-form",{qr_code_id:qrCodeId ,category_id:id})}
-      className={`flex flex-wrap gap-5 justify-between p-5 mt-5 rounded border border-gray-200 border-solid bg-neutral-50 shadow-[0px_4px_16px_rgba(0,0,0,0.04)] max-md:max-w-full ${className}`}
+      className={`flex flex-wrap gap-5 justify-between p-5 mt-5 rounded border border-gray-200 bg-gray-50 shadow-[0px_4px_16px_rgba(0,0,0,0.04)] max-md:max-w-full ${className}`}
     >
       <div className="flex flex-col">
-        <div className="self-start text-sm font-medium tracking-normal text-zinc-900">
+        <div className="self-start text-sm font-medium tracking-normal text-zinc-500">
           {title}
         </div>
         {items.length > 0 && (
@@ -20,7 +19,7 @@ function CategoryItem({ id,title, items,qrCodeId, className = "" }) {
                 key={index}
                 className="gap-1.5 self-stretch my-auto whitespace-nowrap"
               >
-                ⚫ {item}
+                🔘 {item}
               </div>
             ))}
           </div>

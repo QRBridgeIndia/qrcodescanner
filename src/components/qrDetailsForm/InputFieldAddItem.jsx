@@ -12,7 +12,7 @@ export function InputFieldAddItem({
     <>
       <label
         htmlFor={id}
-        className="self-start text-xs font-medium tracking-tight leading-relaxed text-zinc-500"
+        className="self-start text-xs font-medium tracking-tight leading-relaxed text-gray-500"
       >
         {label}
       </label>

@@ -6,15 +6,16 @@ export default function QRCodeItem({ id, image, title, category }) {
   return (
     <div
       onClick={() => navigate(`/qr-details/${id}`)}
-      className="flex flex-wrap gap-5 justify-between px-5 py-4 mt-5 w-full rounded border border-gray-200 border-solid bg-neutral-50 max-w-[560px] shadow-[0px_4px_16px_rgba(0,0,0,0.04)] max-md:max-w-full"
+      className="flex flex-wrap gap-5 justify-between px-5 py-4 mt-5 w-full h-[50px] rounded border border-gray-200 border-solid bg-neutral-50 max-w-[560px] shadow-md max-md:max-w-full"
     >
       <div className="flex gap-5">
         <img
-          width={"100px"}
+          width="50"
+          height="50"
           loading="lazy"
           src={image}
           alt={`QR Code for ${title}`}
-          className="object-contain shrink-0 rounded shadow-[0px_8px_16px_rgba(0,0,0,0.06)] "
+          className="w-[50px] h-[50px] object-cover shrink-0 rounded shadow-md"
         />
 
         <div className="flex flex-col my-auto">

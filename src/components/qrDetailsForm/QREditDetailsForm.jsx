@@ -44,9 +44,12 @@ function QREditForm() {
           id: data.id,
           qr_code_id: data.qr_code_details?.qr_code_id || "",
           switches: {
-            show_personal_info: data.show_personal_info,
-            show_emergency_contacts: data.show_emergency_contacts,
-            show_address: data.show_address,
+            show_personal_info: data.
+            qr_code_details.show_personal_info,
+            show_emergency_contacts: data.
+            qr_code_details.show_emergency_contacts,
+            show_address: data.
+            qr_code_details.show_address,
           },
         });
         setLoading(false);
@@ -89,7 +92,7 @@ function QREditForm() {
     formData.append("show_personal_info", formValues.switches.show_personal_info);
     formData.append("show_emergency_contacts", formValues.switches.show_emergency_contacts);
     formData.append("show_address", formValues.switches.show_address);
-    // formData.append("is_active",true);
+    formData.append("is_active",true);
     // formData.append("is_missing",true);
 
     if (photo) {
@@ -123,10 +126,10 @@ function QREditForm() {
       <Header title="Edit QR Details" />
       <div className="flex flex-col px-5 mt-5 w-full">
         <InputFieldAddItem label="QR Name" value={formValues.name} id="name" onChange={handleInputChange} />
-        <div className="self-start mt-5 text-xs font-medium text-zinc-500">Item Photo</div>
+        <div className="self-start mt-5 text-xs font-medium text-gray-500">Item Photo</div>
         <div className="flex flex-wrap gap-5 justify-between px-3.5 py-4 mt-2 border border-gray-200 rounded">
           <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" id="photo-upload" />
-          <label htmlFor="photo-upload" className="text-gray-600 font-semibold cursor-pointer">Click to Upload a Photo</label>
+          <label htmlFor="photo-upload" className="text-gray-600 font-semibold cursor-pointer">Click to Upload</label>
           {photo && <img src={URL.createObjectURL(photo)} alt="Selected" className="max-w-[100px] h-auto rounded-lg shadow-md mt-3" />}
         </div>
         <InputFieldAddItem label="Owner Name" value={formValues.owner_name} id="owner_name" onChange={handleInputChange} />
@@ -137,14 +140,14 @@ function QREditForm() {
         <div className="flex mt-6 space-x-3">
           <button
             type="button"
-            className="flex-1 px-6 py-5 text-sm font-medium border-2 border-blue-300 text-blue bg-white-500 rounded"
+            className="flex-1 px-6 py-3 text-sm font-medium border-2 border-blue-300 text-blue bg-white-500 rounded"
             onClick={handleCancel}
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="flex-1 px-6 py-5 text-sm font-medium text-white bg-blue-600 rounded"
+            className="flex-1 px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded"
           >
             Save Changes
           </button>

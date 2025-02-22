@@ -17,7 +17,7 @@ function SettingsItem({ label, iconSrc, url }) {
   return (
     <div
       onClick={handleLogout}
-      className="flex flex-wrap gap-5 justify-between p-5 w-full whitespace-nowrap rounded border border-gray-200 border-solid bg-neutral-50 shadow-[0px_4px_16px_rgba(0,0,0,0.04)] max-md:max-w-full"
+      className="flex flex-wrap gap-5 justify-between p-5 w-full whitespace-nowrap rounded border border-gray-200 border-solid bg-neutral-50 shadow-lg max-md:max-w-full"
       role="button"
       tabIndex={0}
     >

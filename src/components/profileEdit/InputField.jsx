@@ -7,11 +7,11 @@ export function InputField({ label, value, type, hasIcon, onChange }) {
     <div className="mt-5">
       <label
         htmlFor={inputId}
-        className="block text-sm font-medium text-zinc-700"
+        className="block text-sm font-medium text-gray-600"
       >
         {label}
       </label>
-      <div className="flex flex-wrap gap-5 justify-between px-3.5 py-4 mt-2 rounded border border-gray-200 border-solid bg-neutral-50 text-zinc-900 max-md:max-w-full">
+      <div className="flex flex-wrap gap-5 justify-between px-3.5 py-4 mt-2 rounded border border-gray-200 border-solid bg-neutral-50 text-gray-600 max-md:max-w-full">
         <input
           type={type}
           id={inputId}

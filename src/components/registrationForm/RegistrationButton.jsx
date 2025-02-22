@@ -5,7 +5,7 @@ export function RegistrationButton() {
   const navigate = useCustomNavigate();
   return (
     <button
-      onClick={() => navigate("/scan-qr")}
+      onClick={() => navigate("/scan-newqr")}
       className="flex overflow-hidden flex-wrap gap-2 justify-center items-center self-stretch px-6 py-4 mt-2 text-sm tracking-normal leading-snug text-white whitespace-nowrap bg-indigo-500 rounded min-h-[48px] max-md:px-5 max-md:mb-2.5"
       tabIndex="0"
     >

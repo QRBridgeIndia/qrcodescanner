@@ -22,7 +22,7 @@ export function PersonalInfo({ data, onInputChange }) {
           // Date input for DOB
           return (
             <div key={index} className="my-4">
-              <label htmlFor={field.field} className="block text-sm font-medium text-zinc-700">
+              <label htmlFor={field.field} className="block text-sm font-medium text-gray-600">
                 {field.label}
               </label>
               <input
@@ -38,7 +38,7 @@ export function PersonalInfo({ data, onInputChange }) {
           // Dropdown for Blood Group
           return (
             <div key={index} className="my-4">
-              <label htmlFor={field.field} className="block text-sm font-medium text-zinc-700">
+              <label htmlFor={field.field} className="block text-sm font-medium text-gray-600">
                 {field.label}
               </label>
               <select

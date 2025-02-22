@@ -18,7 +18,7 @@ export const PhoneInput = forwardRef((props, ref) => {
       >
         Mobile Number
       </label>
-      <div className="flex items-center gap-3.5 px-3.5 py-4 rounded border border-gray-200 bg-neutral-50 focus-within:ring-2 focus-within:ring-sky-500 focus-within:border-transparent">
+      <div className="flex items-center gap-3.5 px-3.5 py-4 rounded border border-gray-400 border-solid bg-neutral-50 focus-within:ring-2 focus-within:ring-gray-300 focus-within:border-transparent">
         <span 
           className="text-gray-400 text-sm font-medium" 
           aria-hidden="true"
@@ -32,7 +32,7 @@ export const PhoneInput = forwardRef((props, ref) => {
           value={phoneNumber}
           onChange={handlePhoneChange}
           ref={ref}
-          className="flex-1 bg-transparent border-none outline-none text-sm text-zinc-900 placeholder-gray-400"
+          className="flex-1 bg-transparent border-none outline-none text-sm text-gray-400 placeholder-gray-400"
           placeholder="Enter your mobile number"
           pattern="[0-9]{10}"
           maxLength="10"

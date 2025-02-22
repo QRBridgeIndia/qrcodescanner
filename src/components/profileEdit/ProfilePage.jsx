@@ -217,20 +217,13 @@ export default function ProfilePage() {
         
         {/* Image Upload Section */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2">Profile Picture:</label>
+          <label className="block text-gray-600  font-medium mb-2">Profile Picture:</label>
           <input
             type="file"
             accept="image/*"
             onChange={handleImageChange}
             className="border p-2 w-full"
           />
-          {/* {formData.image && (
-            <img
-              src={`https://api.qrbridge.in${formData.image}`}
-              alt="Profile Preview"
-              className="mt-2 w-24 h-24 rounded-full object-cover"
-            />
-          )} */}
         </div>
 
         <EmergencyContact

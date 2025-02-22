@@ -36,7 +36,7 @@ function QRDetailsForm() {
       show_address: false,
     },
   });
-  const [photo, setPhoto] = React.useState(null); // state to hold the uploaded photo
+  const [photo, setPhoto] = React.useState(null); 
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -53,7 +53,7 @@ function QRDetailsForm() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setPhoto(file); // store the selected file
+      setPhoto(file); 
     }
   };
 
@@ -79,7 +79,6 @@ function QRDetailsForm() {
       console.warn("Photo is missing!");
     }
   
-    // Debugging FormData
     console.log("FormData Contents:");
     for (let [key, value] of formData.entries()) {
       console.log(`${key}:`, value);
@@ -111,7 +110,7 @@ function QRDetailsForm() {
           id="name"
           onChange={handleInputChange}
         />
-        <div className="self-start mt-5 text-xs font-medium tracking-tight leading-relaxed text-zinc-500">
+        <div className="self-start mt-5 text-xs font-medium tracking-tight leading-relaxed text-gray-500">
           Item Photo
         </div>
         <div className="flex flex-wrap gap-5 justify-between px-3.5 py-4 mt-2 text-sm font-medium tracking-normal leading-snug text-gray-400 rounded border border-gray-200 border-solid bg-neutral-50 max-md:max-w-full">
@@ -134,7 +133,7 @@ function QRDetailsForm() {
           {photo && (
             <div className="flex flex-col items-center justify-center">
               <img
-                src={URL.createObjectURL(photo)} // Preview the selected image
+                src={URL.createObjectURL(photo)} 
                 alt="Selected"
                 className="object-contain max-w-[100px] h-auto rounded-lg shadow-md mt-3"
               />

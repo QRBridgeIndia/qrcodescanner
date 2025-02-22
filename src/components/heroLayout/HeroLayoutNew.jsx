@@ -3,7 +3,7 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 import apiClient from "../../api/apiClient";
 import { useNavigate } from "react-router-dom";
 
-export default function QRScanner() {
+export default function NewQRScanner() {
   const [scanResult, setScanResult] = useState("");
   const [apiResponse, setApiResponse] = useState(null);
   const scannerRef = useRef(null);
@@ -69,10 +69,10 @@ export default function QRScanner() {
       scannerRef.current.clear();
 
       if (data.is_registered) {
+        alert('QR is registered already');
         window.location.href = `https://api.qrbridge.in/public/scan?qr_code_id=${qrCodeId}`;
       } else {
-        alert('InValid QR, Register QR');
-        navigate(`/register`, { replace: true });
+        navigate(`/categories/${qrCodeId}`, { replace: true });
       }
     } catch (error) {
       console.error("Error fetching QR code data:", error);

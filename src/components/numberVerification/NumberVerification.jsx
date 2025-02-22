@@ -101,7 +101,7 @@ function NumberVerification() {
 
         <button
           type="submit"
-          className="overflow-hidden gap-2 self-stretch px-6 py-5 mt-10 w-full text-sm tracking-normal text-center text-white whitespace-nowrap bg-blue-800 rounded max-w-[560px] min-h-[48px] max-md:px-5 max-md:max-w-full"
+          className="overflow-hidden gap-2 self-stretch px-6 py-5 mt-10 w-full text-sm tracking-normal text-center text-white whitespace-nowrap bg-blue-500 rounded max-w-[560px] min-h-[48px] max-md:px-5 max-md:max-w-full"
         >
           Verify
         </button>

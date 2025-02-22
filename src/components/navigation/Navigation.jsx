@@ -1,5 +1,6 @@
 import * as React from "react";
 import { NavigationItem } from "./NavigationItem";
+import { useLocation } from "react-router-dom";
 
 const navigationItems = [
   {
@@ -24,16 +25,18 @@ const navigationItems = [
 ];
 
 export function Navigation() {
+  const location = useLocation();
   return (
-    <div className="flex flex-col px-5 w-full bg-white rounded-xl max-md:max-w-full max-w-screen-lg mx-auto">
+    <div className="flex flex-col px-5 mb-2 w-full bg-white rounded-md border border-2 shadow-2xl max-md:max-w-full max-w-screen-lg bg-gray-100">
       <div className="flex gap-10 items-center w-full max-md:max-w-full">
-        <div className="flex flex-wrap gap-5 justify-between self-stretch px-5 py-3.5 my-auto w-full">
+        <div className="flex flex-wrap gap-5 justify-between self-stretch px-5 py-3.5 w-full">
           {navigationItems.map((item, index) => (
             <NavigationItem
               key={index}
               icon={item.icon}
               label={item.label}
               url={item.navigate}
+              isActive={location.pathname === item.navigate}
             />
           ))}
         </div>
@@ -41,3 +44,4 @@ export function Navigation() {
     </div>
   );
 }
+

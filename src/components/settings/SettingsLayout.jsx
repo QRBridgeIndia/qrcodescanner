@@ -21,7 +21,7 @@ function SettingsLayout() {
   return (
     <div className="flex flex-col items-center w-full bg-white pb-[637px] max-md:pb-24 max-md:max-w-full">
       <Header title="Settings" />
-      <div className="flex flex-col gap-5 w-full max-w-[560px] mt-5">
+      <div className="flex flex-col gap-5 w-full max-w-[560px] mt-5 ">
         {settingsItems.map((item, index) => (
           <SettingsItem
             key={index}

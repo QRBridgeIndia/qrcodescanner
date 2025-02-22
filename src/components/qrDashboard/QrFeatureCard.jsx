@@ -13,14 +13,13 @@ const QrFeatureCard = ({ icon, text, bgColor, textColor, url }) => {
       onClick={() => navigate(url)}
       role="button"
       tabIndex={0}
-      // onKeyDown={(e) => e.key === 'Enter' && onClick?.()}
     >
-      <div className="flex gap-4 max-w-full w-[171px]">
+      <div className="flex gap-6 max-w-full w-[171px]">
         <img
           loading="lazy"
           src={icon}
           alt={text}
-          className="object-contain w-5 aspect-square"
+          className="object-contain w-8 md:w-8 aspect-square"
         />
         <div className="grow shrink my-auto">{text}</div>
       </div>

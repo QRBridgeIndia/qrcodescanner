@@ -1,0 +1,396 @@
+<style>
+  .profile-container {
+    background-color: rgba(241, 241, 241, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    padding: 0 80px 28px;
+    min-height: 100vh;
+  }
+
+  .profile-wrapper {
+    display: flex;
+    width: 900px;
+    max-width: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .logo-container {
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 60px;
+    max-width: 300px;
+    height: 80px;
+    max-width: 100%;
+  }
+
+  .logo {
+    aspect-ratio: 4.5;
+    object-fit: contain;
+    width: 144px;
+  }
+
+  .content-wrapper {
+    background-color: #fff;
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+    padding-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .section-header {
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    color: #1a1c1e;
+    letter-spacing: -0.16px;
+    padding: 24px 60px;
+    font: 500 16px/1.4 Inter, sans-serif;
+  }
+
+  .profile-info {
+    background-color: rgba(241, 241, 241, 1);
+    margin: 20px 20px 0;
+    padding: 20px 60px 20px 20px;
+  }
+
+  .profile-grid {
+    gap: 20px;
+    display: flex;
+  }
+
+  .avatar-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 37%;
+    margin-left: 0;
+  }
+
+  .avatar {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 80px;
+    border-radius: 50%;
+  }
+
+  .details-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 63%;
+    margin-left: 20px;
+  }
+
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    color: #1a1c1e;
+    letter-spacing: -0.14px;
+    margin: auto 0;
+    font: 500 14px/1.4 Inter, sans-serif;
+    text-align: center;
+  }
+
+  .reward-card {
+    border-radius: 4px;
+    background-color: #fafafa;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    margin: 20px 20px 0;
+    padding: 20px 0;
+    border: 1px solid #e9e9e9;
+  }
+
+  .reward-amount {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3em, Roboto;
+    text-align: center;
+  }
+
+  .footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    /* Push footer to the bottom */
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .amount {
+    font-weight: bold;
+  }
+
+  .divider {
+    background-color: #e9e9e9;
+    align-self: stretch;
+    display: flex;
+    margin-top: 20px;
+    height: 4px;
+  }
+
+  .note-label {
+    color: #6c7278;
+    letter-spacing: -0.24px;
+    margin-top: 20px;
+    font: 12px/1.6 Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+
+  .note-text {
+    color: #1a1c1e;
+    letter-spacing: -0.14px;
+    margin-top: 12px;
+    font: 500 14px/1.4 Inter, sans-serif;
+  }
+
+  .section-title {
+    background-color: #f1f1f1;
+    color: #1a1c1e;
+    letter-spacing: -0.14px;
+    margin: 20px 20px 0;
+    padding: 16px 20px;
+    font: 500 14px/1.4 Inter, sans-serif;
+  }
+
+  .info-row {
+    background-color: #fff;
+    border-bottom: 1px solid #e9e9e9;
+    display: flex;
+    gap: 20px;
+    letter-spacing: -0.14px;
+    justify-content: space-between;
+    margin: 0 20px;
+    padding: 20px;
+    font: 14px/1.4 Inter, sans-serif;
+  }
+
+  .info-label {
+    color: #6c7278;
+    font-weight: 400;
+  }
+
+  .info-value {
+    color: #1a1c1e;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  @media (max-width: 991px) {
+    .profile-container {
+      padding: 0 20px;
+    }
+
+    .logo-container {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+
+    .profile-info {
+      max-width: 100%;
+      padding-right: 20px;
+    }
+
+    .profile-grid {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .avatar-column {
+      width: 100%;
+    }
+
+    .avatar {
+      margin-top: 40px;
+    }
+
+    .details-column {
+      width: 100%;
+    }
+
+    .user-details {
+      margin-top: 40px;
+    }
+
+    .reward-card,
+    .section-title,
+    .info-row {
+      max-width: 100%;
+    }
+
+  }
+
+  .error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    text-align: center;
+    font: 500 16px/1.4 Inter, sans-serif;
+  }
+
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 0 20px;
+    }
+
+    .logo-container {
+      max-width: 250px;
+      height: 70px;
+    }
+
+    .logo {
+      width: 120px;
+    }
+
+    .avatar {
+      width: 70px;
+    }
+
+    .user-details {
+      text-align: center;
+    }
+
+    .reward-card {
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    .info-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logo-container {
+      max-width: 200px;
+      height: 60px;
+    }
+
+    .logo {
+      width: 100px;
+    }
+  }
+</style>
+
+<div class="profile-container">
+  <div class="profile-wrapper">
+    <div class="logo-container">
+      <img loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6149eb178b2fd6ae76524c1fe696f8f7d62603ed6e38957938acae29dbec69a3?placeholderIfAbsent=true&apiKey=7dfdcd3fcb4745259dc5599f627fccb0"
+        alt="Company Logo" class="logo" />
+    </div>
+    <div class="content-wrapper">
+      {% if error_message %}
+      <div class="error-message">{{ error_message }}</div>
+      {% else %}
+      <div class="section-header">Owner Information</div>
+      <div class="profile-info">
+        <div class="profile-grid">
+          <div class="avatar-column">
+            <img loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/8bee59c66a78f4a059f878bb1cf2e9b0c595c6419042035b5c5cbcbbd24be278?placeholderIfAbsent=true&apiKey=7dfdcd3fcb4745259dc5599f627fccb0"
+              alt="Profile Picture" class="avatar" />
+          </div>
+          <div class="details-column">
+            <div class="user-details">
+              <span>{{ owner_name }}</span>
+              <span>{{ owner_email }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if bounty_amount %}
+      <div class="reward-card">
+        <div class="reward-amount">
+          <span class="reward-label">Reward : </span>
+          <span class="amount">{{ bounty_amount }} ₹</span>
+        </div>
+        <div class="divider"></div>
+        <span class="note-label">Note</span>
+        <span class="note-text">{{ note }}</span>
+      </div>
+      {% endif %}
+      {% if permissions.show_personal_info %}
+      <div class="section-title">Personal Information</div>
+      <div class="info-row">
+        <span class="info-label">QR Name</span>
+        <span class="info-value">{{ personal_info.name }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Phone No</span>
+        <span class="info-value">{{ personal_info.phone }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Date of Birth</span>
+        <span class="info-value">{{ personal_info.dob }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Gender</span>
+        <span class="info-value">{{ personal_info.gender }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Blood Group</span>
+        <span class="info-value">{{ personal_info.blood_group }}</span>
+      </div>
+      {% endif %}
+      {% if permissions.show_emergency_contacts %}
+      <div class="section-title">Emergency Contacts</div>
+      {% for contact in emergency_contacts %}
+      <div class="info-row">
+        <span class="info-label">Name</span>
+        <span class="info-value">{{ contact.name }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Phone No</span>
+        <span class="info-value">{{ contact.phone }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Relation</span>
+        <span class="info-value">{{ contact.relationship }}</span>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% if permissions.show_address %}
+      <div class="section-title">Address</div>
+      <div class="info-row">
+        <span class="info-label">Address</span>
+        <span class="info-value">{{ address_info.address }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">City</span>
+        <span class="info-value">{{ address_info.city }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">State</span>
+        <span class="info-value">{{ address_info.state }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Zip / Pincode</span>
+        <span class="info-value">{{ address_info.pincode }}</span>
+      </div>
+      {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
