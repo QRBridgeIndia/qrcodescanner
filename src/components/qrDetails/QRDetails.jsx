@@ -103,7 +103,7 @@ export function QRDetails({setHideFooter}) {
   };
 
   return (
-    <div className="flex flex-col pb-5 w-full bg-white max-md:max-w-full relative h-screen">
+    <div className="flex flex-col px-5 pt-3 pb-52 w-full bg-white max-md:max-w-full relative h-screen">
       <Header title="Details" />
       <div className="flex flex-col px-5 mt-5 w-full max-md:max-w-full">
         {/* Image Gallery with Skeleton */}
