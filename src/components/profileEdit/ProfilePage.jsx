@@ -21,7 +21,7 @@ export default function ProfilePage() {
     state: "",
     pincode: "",
     emergency_contacts: [{ name: "", phone: "", relationship: "" }],
-    image: null,
+    image: null, 
   });
 
   useEffect(() => {
@@ -38,11 +38,11 @@ export default function ProfilePage() {
       setFormData((prev) => ({
         ...prev,
         ...data,
-        image: data.image || prev.image,
+        image: data.image || prev.image, 
         emergency_contacts: data.emergency_contacts.length > 0 ? data.emergency_contacts : [{ name: "", phone: "", relationship: "" }],
       }));
     }
-  }, [data]);
+  }, [data]);  
 
   const handleInputChange = (index, field, value) => {
     setFormData((prev) => {
@@ -63,12 +63,12 @@ export default function ProfilePage() {
       alert("Please select a valid image file.");
     }
   };
-
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const profileData = new FormData();
+      const profileData = new FormData(); 
       profileData.append("name", formData.name);
       profileData.append("dob", formData.dob);
       profileData.append("blood_group", formData.blood_group);
@@ -112,13 +112,10 @@ export default function ProfilePage() {
           data={formData}
           onInputChange={(field, value) => setFormData({ ...formData, [field]: value })}
         />
-
+        
         {/* Image Upload Section */}
         <div className="mb-4">
-          <label className="block text-gray-600 font-medium mb-2">Profile Picture:</label>
-          {formData.image && !(formData.image instanceof File) && (
-            <img src={formData.image} alt="Profile" className="w-32 h-32 rounded-full mb-2" />
-          )}
+          <label className="block text-gray-600  font-medium mb-2">Profile Picture:</label>
           <input
             type="file"
             accept="image/*"
@@ -126,6 +123,7 @@ export default function ProfilePage() {
             className="border p-2 w-full"
           />
         </div>
+
         <EmergencyContact
           contacts={[formData?.emergency_contacts[0]] || []}
           onInputChange={handleInputChange}
