@@ -63,7 +63,6 @@ export default function ProfilePage() {
       alert("Please select a valid image file.");
     }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();

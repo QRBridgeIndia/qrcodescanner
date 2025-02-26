@@ -45,7 +45,6 @@ export function QRDetails({setHideFooter}) {
   const infoFields = [
     { label: "QR Name", value: productDetails?.name },
     { label: "Category", value: productDetails?.category_name },
-    { label: "Owner Name", value: productDetails?.owner_name },
     { label: "Description", value: productDetails?.description },
     {
       label: "Date Registered",
@@ -103,7 +102,7 @@ export function QRDetails({setHideFooter}) {
   };
 
   return (
-    <div className="flex flex-col px-5 pt-3 pb-52 w-full bg-white max-md:max-w-full relative h-screen">
+    <div className="flex flex-col px-3 pt-3 pb-52 w-full bg-white max-md:max-w-full relative h-screen">
       <Header title="Details" />
       <div className="flex flex-col px-5 mt-5 w-full max-md:max-w-full">
         {/* Image Gallery with Skeleton */}
@@ -168,7 +167,7 @@ export function QRDetails({setHideFooter}) {
             )}
 
             {/* Note Section */}
-            {productDetails?.note?.trim() !== "" && (
+            {(productDetails?.note?.trim() !== "" && productDetails?.note!==null)&& (
               <div className="p-2 text-center">
                 <p className="text-sm text-gray-500">Note</p>
                 <p className="text-base font-semibold">{productDetails.note}</p>
@@ -220,15 +219,23 @@ export function QRDetails({setHideFooter}) {
               onClick={handleReward}
               className="flex overflow-hidden gap-2 justify-center items-center px-6 py-4 w-full text-sm font-medium tracking-normal leading-snug text-center text-white bg-yellow-500 rounded min-h-[48px] max-md:px-5"
             >
-              <div className="flex gap-2 items-center self-stretch my-auto">
-                <span className="self-stretch my-auto">Report as Lost</span>
-                <img
-                  loading="lazy"
-                  src="https://cdn-icons-png.flaticon.com/512/545/545682.png"
-                  alt="Report Icon"
-                  className="object-contain shrink-0 w-4 aspect-square"
-                />
-              </div>
+              <div className="flex gap-2 items-center">
+                <span>Report as Lost</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M5 12h14M12 5l7 7-7 7"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                </div>
             </button>
           </div>
         )}

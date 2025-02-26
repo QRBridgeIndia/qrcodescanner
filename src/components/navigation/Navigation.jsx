@@ -27,21 +27,18 @@ const navigationItems = [
 export function Navigation() {
   const location = useLocation();
   return (
-    <div className="flex flex-col px-5 mb-2 w-full bg-white rounded-md border border-2 shadow-2xl max-md:max-w-full max-w-screen-lg bg-gray-100">
-      <div className="flex gap-10 items-center w-full max-md:max-w-full">
-        <div className="flex flex-wrap gap-5 justify-between self-stretch px-5 py-3.5 w-full">
-          {navigationItems.map((item, index) => (
-            <NavigationItem
-              key={index}
-              icon={item.icon}
-              label={item.label}
-              url={item.navigate}
-              isActive={location.pathname === item.navigate}
-            />
-          ))}
-        </div>
+    <div className="fixed bottom-0 left-0 w-full mb-3 bg-white shadow-lg border-t border-gray-200 md:relative md:w-auto md:rounded-md md:border md:shadow-2xl">
+      <div className="grid grid-cols-4 items-center py-3 max-w-screen-md mx-auto gap-4 md:flex md:justify-between md:px-5">
+        {navigationItems.map((item, index) => (
+          <NavigationItem
+            key={index}
+            icon={item.icon}
+            label={item.label}
+            url={item.navigate}
+            isActive={location.pathname === item.navigate}
+          />
+        ))}
       </div>
     </div>
   );
 }
-

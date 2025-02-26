@@ -37,9 +37,18 @@ function QRDetailsForm() {
     },
   });
   const [photo, setPhoto] = React.useState(null); 
+  const [descriptionError, setDescriptionError] = React.useState("");
+
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
+    if (id === "description") {
+      if (value.length > 50) {
+        setDescriptionError("Description cannot exceed 42 characters.");
+      } else {
+        setDescriptionError("");
+      }
+    }
     setFormValues((prev) => ({ ...prev, [id]: value }));
   };
 
@@ -59,6 +68,11 @@ function QRDetailsForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formValues.description.length > 42) {
+      setDescriptionError("Description cannot exceed 42 characters.");
+      return;
+    }
   
     console.log("Form Values Before Sending:", formValues);
   
@@ -147,13 +161,25 @@ function QRDetailsForm() {
           id="owner_name"
           onChange={handleInputChange}
         />
+        {/* <InputFieldAddItem
+          label="Description"
+          value={formValues.description}
+          id="description"
+          multiline
+          onChange={handleInputChange}
+        /> */}
+
+        {/* Description Input with Validation */}
         <InputFieldAddItem
           label="Description"
           value={formValues.description}
           id="description"
           multiline
           onChange={handleInputChange}
+          maxLength={50}
         />
+        {descriptionError && <p className="text-red-500 text-xs mt-1">{descriptionError}</p>}
+
         {privacySettings.map((setting) => (
           <ToggleSwitch
             key={setting.id}

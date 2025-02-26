@@ -45,11 +45,11 @@ function QREditForm() {
           qr_code_id: data.qr_code_details?.qr_code_id || "",
           switches: {
             show_personal_info: data.
-            qr_code_details.show_personal_info,
+              qr_code_details.show_personal_info,
             show_emergency_contacts: data.
-            qr_code_details.show_emergency_contacts,
+              qr_code_details.show_emergency_contacts,
             show_address: data.
-            qr_code_details.show_address,
+              qr_code_details.show_address,
           },
         });
         setLoading(false);
@@ -64,6 +64,9 @@ function QREditForm() {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
+    if (id === "description" && value.length > 50) {
+      return;
+    }
     setFormValues((prev) => ({ ...prev, [id]: value }));
   };
 
@@ -88,22 +91,22 @@ function QREditForm() {
     formData.append("owner_name", formValues.owner_name);
     formData.append("description", formValues.description);
     formData.append("qr_code_id", formValues.qr_code_id);
-    formData.append("id",formValues.id);
+    formData.append("id", formValues.id);
     formData.append("show_personal_info", formValues.switches.show_personal_info);
     formData.append("show_emergency_contacts", formValues.switches.show_emergency_contacts);
     formData.append("show_address", formValues.switches.show_address);
-    formData.append("is_active",true);
+    formData.append("is_active", true);
     // formData.append("is_missing",true);
 
     if (photo) {
       formData.append("image", photo);
     }
-     const formDataObject = Object.fromEntries(formData.entries());
-     console.log(formDataObject,"formDataObject");
+    const formDataObject = Object.fromEntries(formData.entries());
+    console.log(formDataObject, "formDataObject");
 
     try {
       const response = await apiClient.put(`/api/products/${id}/`, formData);
-      console.log(response,"response from edit form submission")
+      console.log(response, "response from edit form submission")
       navigate(`/qr-details/${id}`);
     } catch (err) {
       console.log(err);
@@ -134,6 +137,9 @@ function QREditForm() {
         </div>
         <InputFieldAddItem label="Owner Name" value={formValues.owner_name} id="owner_name" onChange={handleInputChange} />
         <InputFieldAddItem label="Description" value={formValues.description} id="description" multiline onChange={handleInputChange} />
+        <p className="text-sm text-red-500">
+          {formValues.description.length > 50 && "Description must be at most 60 characters"}
+        </p>
         {privacySettings.map((setting) => (
           <ToggleSwitch key={setting.id} label={setting.label} id={setting.id} isChecked={formValues.switches[setting.id]} onChange={handleSwitchChange} />
         ))}
