@@ -8,7 +8,7 @@ function ProfileImage({ data }) {
     <div className="py-5 px-5 mt-5 bg-zinc-100 w-full max-w-[560px] rounded-lg max-md:px-3">
       <div className="flex items-center gap-4 max-md:gap-3 max-sm:flex-col max-sm:items-center max-sm:text-center">
         {/* Profile Image */}
-        <div className="w-24 h-24 max-sm:w-20 max-sm:h-20 max-xs:w-16 max-xs:h-16 flex-shrink-0">
+        <div className="w-16 h-16 max-sm:w-10 max-sm:h-10 max-xs:w-5 max-xs:h-5 flex-shrink-0">
           <img
             loading="lazy"
             src={

@@ -102,9 +102,9 @@ export function QRDetails({setHideFooter}) {
   };
 
   return (
-    <div className="flex flex-col px-3 pt-3 pb-52 w-full bg-white max-md:max-w-full relative h-screen">
+    <div className="flex flex-col px-3 pb-52 w-full bg-white max-md:max-w-full relative h-screen">
       <Header title="Details" />
-      <div className="flex flex-col px-5 mt-5 w-full max-md:max-w-full">
+      <div className="flex flex-col px-3 mt-3 w-full max-md:max-w-full">
         {/* Image Gallery with Skeleton */}
         {loading ? (
           <Skeleton height={200} width={"100%"} />
@@ -112,7 +112,7 @@ export function QRDetails({setHideFooter}) {
           <ImageGallery qr={qr} product={productDetails?.image} />
         )}
         {/* Info Fields with Skeleton */}
-        <div className="flex flex-col items-start mt-6 ml-5 max-w-full font-medium w-[161px] max-md:ml-2.5">
+        <div className="flex flex-col items-start mt-6 ml-5 max-w-full font-medium w-[161px] max-md:ml-2.5  whitespace-pre-line break-words">
           {infoFields.map((field, index) => (
             <div key={index} className={`${index > 0 ? "mt-6" : ""}`}>
               {loading ? (

@@ -64,7 +64,7 @@ function QREditForm() {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    if (id === "description" && value.length > 50) {
+    if (id === "description" && value.length > 100) {
       return;
     }
     setFormValues((prev) => ({ ...prev, [id]: value }));
@@ -88,7 +88,7 @@ function QREditForm() {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", formValues.name);
-    formData.append("owner_name", formValues.owner_name);
+    formData.append("owner_name", " ");
     formData.append("description", formValues.description);
     formData.append("qr_code_id", formValues.qr_code_id);
     formData.append("id", formValues.id);
@@ -125,9 +125,9 @@ function QREditForm() {
     );
 
   return (
-    <form className="flex flex-col pb-5 w-full bg-white" onSubmit={handleSubmit}>
+    <form className="flex flex-col pb-10 w-full bg-white" onSubmit={handleSubmit}>
       <Header title="Edit QR Details" />
-      <div className="flex flex-col px-5 mt-5 w-full">
+      <div className="flex flex-col px-5 mt-2 w-full">
         <InputFieldAddItem label="QR Name" value={formValues.name} id="name" onChange={handleInputChange} />
         <div className="self-start mt-5 text-xs font-medium text-gray-500">Item Photo</div>
         <div className="flex flex-wrap gap-5 justify-between px-3.5 py-4 mt-2 border border-gray-200 rounded">
@@ -135,26 +135,26 @@ function QREditForm() {
           <label htmlFor="photo-upload" className="text-gray-600 font-semibold cursor-pointer">Click to Upload</label>
           {photo && <img src={URL.createObjectURL(photo)} alt="Selected" className="max-w-[100px] h-auto rounded-lg shadow-md mt-3" />}
         </div>
-        <InputFieldAddItem label="Owner Name" value={formValues.owner_name} id="owner_name" onChange={handleInputChange} />
+        {/* <InputFieldAddItem label="Owner Name" value={formValues.owner_name} id="owner_name" onChange={handleInputChange} /> */}
         <InputFieldAddItem label="Description" value={formValues.description} id="description" multiline onChange={handleInputChange} />
         <p className="text-sm text-red-500">
-          {formValues.description.length > 50 && "Description must be at most 60 characters"}
+          {formValues.description.length > 100 && "Description must be at most 60 characters"}
         </p>
         {privacySettings.map((setting) => (
           <ToggleSwitch key={setting.id} label={setting.label} id={setting.id} isChecked={formValues.switches[setting.id]} onChange={handleSwitchChange} />
         ))}
-        <div className="flex mt-6 space-x-3">
+        <div className="flex flex-wrap mt-6 gap-3">
           <button
             type="button"
-            className="flex-1 px-6 py-3 text-sm font-medium border-2 border-blue-300 text-blue bg-white-500 rounded"
+            className="flex-1 w-full sm:w-auto px-6 py-3 text-sm font-medium border-2 border-blue-300 text-blue-600 bg-white rounded"
             onClick={handleCancel}
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="flex-1 px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded"
-          >
+            className="flex-1 w-full sm:w-auto px-6 py-3 text-sm font-medium text-white bg-blue-600 rounded"
+            >
             Save Changes
           </button>
         </div>

@@ -69,8 +69,8 @@ function QRDetailsForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formValues.description.length > 42) {
-      setDescriptionError("Description cannot exceed 42 characters.");
+    if (formValues.description.length > 100) {
+      setDescriptionError("Description cannot exceed 100 characters.");
       return;
     }
   
@@ -81,7 +81,7 @@ function QRDetailsForm() {
     formData.append("qr_code_id", formValues.qr_code_id);
     formData.append("category_id", formValues.category_id);
     formData.append("description", formValues.description);
-    formData.append("owner_name", formValues.owner_name);
+    formData.append("owner_name", " ");
     formData.append("show_personal_info", String(formValues.switches.show_personal_info));
     formData.append("show_emergency_contacts", String(formValues.switches.show_emergency_contacts));
     formData.append("show_address", String(formValues.switches.show_address));
@@ -155,12 +155,12 @@ function QRDetailsForm() {
             </div>
           )}
         </div>
-        <InputFieldAddItem
+        {/* <InputFieldAddItem
           label="Owner Name"
           value={formValues.owner_name}
           id="owner_name"
           onChange={handleInputChange}
-        />
+        /> */}
         {/* <InputFieldAddItem
           label="Description"
           value={formValues.description}
@@ -176,7 +176,7 @@ function QRDetailsForm() {
           id="description"
           multiline
           onChange={handleInputChange}
-          maxLength={50}
+          maxLength={100}
         />
         {descriptionError && <p className="text-red-500 text-xs mt-1">{descriptionError}</p>}
 

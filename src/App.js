@@ -31,7 +31,7 @@ import NewQRScanner from "./components/heroLayout/HeroLayoutNew";
 
 function AppLayout({ children,hideFooter }) {
   const location = useLocation(); 
-  const hideFooterRoutes = ["/", "/account-setup", "/number-verification"];
+  const hideFooterRoutes = ["/", "/account-setup", "/number-verification","/terms","/privacy"];
 
   return (
     <div className="app-container">
