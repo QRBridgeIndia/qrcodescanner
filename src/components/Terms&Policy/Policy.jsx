@@ -1,11 +1,21 @@
+import { ArrowLeftSquare } from "lucide-react";
 
-function TermsAndConditions() {
+function PrivacyPolicy() {
   return (
-    <div className="max-w-md mx-auto text-[5px]">
-      <header className="flex justify-center items-center px-16 py-4 w-full h-full bg-white shadow-md max-md:px-2 mb-2 sticky top-0 z-10">
-      <h1 className="text=[10px] text-base font-medium text-zinc-900 tracking-normal">
-      Privacy Policy
+    <div className="max-w-md mx-auto text-base">
+     <header className="flex justify-between items-center px-4 py-4 w-full h-full bg-white shadow-md max-md:px-2 mb-2 sticky top-0 z-10">
+      {/* Arrow Button */}
+      <button onClick={() => window.history.back()} className="text-zinc-900 hover:text-gray-700">
+        <ArrowLeftSquare size={28} color="#1f2937" />
+      </button>
+
+      {/* Title */}
+      <h1 className="text-lg font-medium text-zinc-900 tracking-normal">
+        Privacy Policy
       </h1>
+      
+      {/* Placeholder for spacing */}
+      <div className="w-8"></div>
     </header>
       <p className="pl-2 pr-2 mb-2">
         Thank you for using QRBridge. Your privacy is important to us, and this policy explains how we collect, use, and manage your data.
@@ -82,4 +92,4 @@ function TermsAndConditions() {
   );
 }
 
-export default TermsAndConditions;
+export default PrivacyPolicy;
