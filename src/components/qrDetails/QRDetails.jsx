@@ -63,6 +63,7 @@ export function QRDetails({setHideFooter}) {
   const handleToggleStatus = async () => {
     try {
       const newStatus = !productDetails?.is_active;
+      console.log(newStatus,"newStatus");
       const formData = new FormData();
       formData.append("is_active", newStatus);
       formData.append("name", productDetails?.name);
@@ -102,7 +103,7 @@ export function QRDetails({setHideFooter}) {
   };
 
   return (
-    <div className="flex flex-col px-3 pb-52 w-full bg-white max-md:max-w-full relative h-screen">
+    <div className="flex flex-col px-3 pb-10 w-full bg-white break-words max-md:max-w-full relative h-full overflow-auto">
       <Header title="Details" />
       <div className="flex flex-col px-3 mt-3 w-full max-md:max-w-full">
         {/* Image Gallery with Skeleton */}
@@ -112,7 +113,7 @@ export function QRDetails({setHideFooter}) {
           <ImageGallery qr={qr} product={productDetails?.image} />
         )}
         {/* Info Fields with Skeleton */}
-        <div className="flex flex-col items-start mt-6 ml-5 max-w-full font-medium w-[161px] max-md:ml-2.5  whitespace-pre-line break-words">
+        <div className="flex flex-col items-start mt-6 ml-5 max-w-full font-medium w-[161px] max-md:ml-2.5  whitespace-pre-line break-words overflow-hidden">
           {infoFields.map((field, index) => (
             <div key={index} className={`${index > 0 ? "mt-6" : ""}`}>
               {loading ? (
@@ -140,13 +141,13 @@ export function QRDetails({setHideFooter}) {
                 onClick={handleEdit}
               />
               <ActionButton
-                text={productDetails?.is_active ? "Deactivate" : "Activate"}
+                text={productDetails.qr_code_details?.is_active ? "Deactivate" : "Activate"}
                 icon={
-                  productDetails?.is_active
+                  productDetails.qr_code_details?.is_active
                     ? "https://cdn.builder.io/api/v1/image/assets/TEMP/8eededb5b6b9e79fb644e3f175e530dd6475687d43eb9875ca51044af72a5c92?placeholderIfAbsent=true&apiKey=877e8cc34e814577be2645c5cab8e8b7"
                     : "https://cdn-icons-png.flaticon.com/512/190/190411.png"
                 }
-                bgColor={productDetails?.is_active ? "bg-red-600" : "bg-green-600"}
+                bgColor={productDetails.qr_code_details?.is_active ? "bg-red-600" : "bg-green-600"}
                 onClick={handleToggleStatus}
               />
             </>
@@ -170,7 +171,7 @@ export function QRDetails({setHideFooter}) {
             {(productDetails?.note?.trim() !== "" && productDetails?.note!==null)&& (
               <div className="p-2 text-center">
                 <p className="text-sm text-gray-500">Note</p>
-                <p className="text-base font-semibold">{productDetails.note}</p>
+                <p className="text-base font-semibold break-words max-w-xs mx-auto sm:max-w-md">{productDetails.note}</p>
               </div>
             )}
           </div>)}
@@ -190,7 +191,7 @@ export function QRDetails({setHideFooter}) {
           <div className="flex flex-col gap-4 mt-5 w-full max-w-[560px]">
             <button
               onClick={handleReward}
-              className="flex overflow-hidden gap-2 justify-center items-center px-6 py-4 w-full text-sm font-medium tracking-normal leading-snug text-center text-white bg-yellow-500 rounded min-h-[48px] max-md:px-5"
+              className="flex overflow-hidden gap-2 justify-center items-center px-4 py-2 w-full text-sm font-medium tracking-normal leading-snug text-center text-white bg-yellow-500 rounded min-h-[44px] sm:min-h-[54px] max-md:px-5"
             >
               <div className="flex gap-2 items-center">
                 <span>Cancel/Edit Reward</span>
@@ -213,11 +214,10 @@ export function QRDetails({setHideFooter}) {
             </button>
           </div>
         ) : (
-
           <div className="flex flex-col gap-4 mt-5 w-full max-w-[560px]">
             <button
               onClick={handleReward}
-              className="flex overflow-hidden gap-2 justify-center items-center px-6 py-4 w-full text-sm font-medium tracking-normal leading-snug text-center text-white bg-yellow-500 rounded min-h-[48px] max-md:px-5"
+              className="flex overflow-hidden gap-2 justify-center items-center px-6 py-4 w-full text-sm font-medium tracking-normal leading-snug text-center text-white bg-yellow-500 rounded min-h-[54px] max-md:px-5"
             >
               <div className="flex gap-2 items-center">
                 <span>Report as Lost</span>

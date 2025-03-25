@@ -21,7 +21,7 @@ const QrFeatureCard = ({ icon, text, bgColor, textColor, url }) => {
           alt={text}
           className="object-contain w-8 md:w-8 aspect-square"
         />
-        <div className="grow shrink my-auto">{text}</div>
+        <div className="grow shrink my-auto whitespace-nowrap">{text}</div>
       </div>
     </div>
   );

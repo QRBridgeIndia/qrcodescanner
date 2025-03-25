@@ -34,11 +34,11 @@ function AppLayout({ children,hideFooter }) {
   const hideFooterRoutes = ["/", "/account-setup", "/number-verification","/terms","/privacy"];
 
   return (
-    <div className="app-container">
+    <div className="app-container mx-5 sm:mx-10">
       <FloatingHeader/>
       <main className="app-content mt-3">{children}</main>
       {!(hideFooterRoutes.includes(location.pathname) || hideFooter) && (
-        <footer className="app-footer w-full px-10">
+        <footer className="app-footer w-full px-10 mx-auto px-5 py-3">
           <Navigation />
         </footer>
       )}
