@@ -100,11 +100,11 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="flex flex-col pb-5 w-full bg-white max-md:max-w-full">
+    <div className="flex flex-col min-h-screen w-full bg-white max-md:max-w-full overflow-auto">
       <Header title="Profile" />
       <form
-        className="flex flex-col px-5 mt-5 w-full text-zinc-500 max-md:max-w-full"
-        onSubmit={handleSubmit}
+      className="flex flex-col px-5 mt-5 w-full text-zinc-500 max-md:max-w-full pb-20"
+      onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
         <PersonalInfo

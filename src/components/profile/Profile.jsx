@@ -29,7 +29,7 @@ function Profile() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center rounded-none max-w-[600px]">
+      <div className="flex flex-col items-center w-full min-h-screen overflow-auto pb-20">
         <Header title="Profile" />
         <Skeleton circle={true} height={100} width={100} />
         <Skeleton height={30} width={`60%`} />
@@ -69,7 +69,7 @@ function Profile() {
   ];
 
   return (
-    <div className="flex flex-col items-center rounded-none max-w-[600px]">
+    <div className="flex flex-col items-center w-full min-h-screen overflow-auto pb-20">
       <Header title="Profile" />
       <ProfileImage data={profileDetails} />
       <InfoSection title="Personal Information" items={personalInfo} />

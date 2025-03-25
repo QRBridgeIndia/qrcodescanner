@@ -15,7 +15,7 @@ export default function QRCodeItem({ id, image, title, category }) {
           loading="lazy"
           src={image}
           alt={`QR Code for ${title}`}
-          className="w-[50px] h-[50px] object-cover shrink-0 rounded shadow-md"
+          className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-cover shrink-0 rounded shadow-md"
         />
 
         <div className="flex flex-col my-auto">
