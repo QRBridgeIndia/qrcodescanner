@@ -22,8 +22,10 @@ export default function QRCodeManager() {
   if (error) return <div>Server Error</div>;
 
   return (
-    <div className="flex flex-col items-center w-full bg-white pb-[544px] max-md:pb-24 max-md:max-w-full">
+    <div className="flex flex-col items-center w-full bg-white min-h-screen overflow-auto">
       <Header title="Manage QR Codes" />
+      <div className="w-full max-w-4xl p-4 space-y-4">
+
       {qrCodeItems.map((item, index) => (
         <QRCodeItem
           key={index}
@@ -36,6 +38,7 @@ export default function QRCodeManager() {
           category={item.category_name}
         />
       ))}
+          </div>
     </div>
   );
 }

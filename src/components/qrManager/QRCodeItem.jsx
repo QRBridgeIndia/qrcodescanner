@@ -19,7 +19,7 @@ export default function QRCodeItem({ id, image, title, category }) {
         />
 
         <div className="flex flex-col my-auto">
-          <div className="self-start text-sm font-medium tracking-normal text-zinc-900">
+          <div className="self-start text-sm font-medium tracking-normal text-zinc-900 break-words whitespace-normal">
             {title}
           </div>
           <div className="flex gap-3 items-center mt-4 text-xs tracking-normal text-zinc-500">
