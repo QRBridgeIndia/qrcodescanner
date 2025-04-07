@@ -28,7 +28,7 @@ function QrDashboard() {
       style={{
         background: "#DFF2FF",
       }}
-      className={`flex flex-col justify-center items-center px-16 py-4 w-full text-sm font-medium tracking-normal leading-snug text-blue-900 bg-[#DFF2FF] rounded max-md:px-5 max-md:max-w-full mb-5`}
+      className={`flex flex-col justify-center items-center pl-6 py-4 w-full text-sm font-medium tracking-normal leading-snug text-blue-900 bg-[#DFF2FF] rounded max-md:px-5 max-md:max-w-full mb-5`}
       onClick={() => navigate('/scan-qr')}
       role="button"
       tabIndex={0}

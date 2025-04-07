@@ -9,7 +9,7 @@ const QrFeatureCard = ({ icon, text, bgColor, textColor, url }) => {
       style={{
         background: bgColor,
       }}
-      className={`flex flex-col justify-center items-center px-16 py-4 w-full text-sm font-medium tracking-normal leading-snug ${textColor} ${bgColor} rounded max-md:px-5 max-md:max-w-full`}
+      className={`flex flex-col justify-center items-center pl-6 py-4 w-full text-sm font-medium tracking-normal leading-snug ${textColor} ${bgColor} rounded max-md:px-5 max-md:max-w-full`}
       onClick={() => navigate(url)}
       role="button"
       tabIndex={0}

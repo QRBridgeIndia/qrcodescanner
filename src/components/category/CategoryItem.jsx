@@ -12,7 +12,7 @@ function CategoryItem({ id,title, items,qrCodeId, className = "" }) {
         <div className="self-start text-sm font-medium tracking-normal text-zinc-500">
           {title}
         </div>
-        {items.length > 0 && (
+        {/* {items.length > 0 && (
           <div className="flex gap-3 items-center mt-4 text-xs tracking-normal text-zinc-500">
             {items.map((item, index) => (
               <div
@@ -23,7 +23,7 @@ function CategoryItem({ id,title, items,qrCodeId, className = "" }) {
               </div>
             ))}
           </div>
-        )}
+        )} */}
       </div>
       <img
         loading="lazy"
