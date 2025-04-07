@@ -191,7 +191,7 @@ function QRDetailsForm() {
         ))}
         <button
           type="submit"
-          className="overflow-hidden gap-2 self-stretch px-6 py-5 mt-6 text-sm font-medium tracking-normal leading-snug text-center text-white whitespace-nowrap bg-indigo-500 rounded min-h-[48px] max-md:px-5"
+          className="overflow-hidden gap-2 self-stretch px-6 py-5 mt-4 mb-4 text-sm font-medium tracking-normal leading-snug text-center text-white whitespace-nowrap bg-indigo-500 rounded min-h-[48px] max-md:px-5"
         >
           Submit
         </button>

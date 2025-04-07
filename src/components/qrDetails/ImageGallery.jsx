@@ -13,7 +13,7 @@ export function ImageGallery({ product, qr }) {
         {qrLoading && <Skeleton width={96} height={96} />}
         <img
         loading="lazy"
-        src={qr||"https://api.qrbridge.in/media/qrcodes/qr_ddf26813-e7f2-4808-9c3e-010473256a88.png"
+        src={qr||"https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png"
         }
           alt="QR code preview"
           className={`w-full h-full object-contain ${qrLoading ? "hidden" : ""}`}
