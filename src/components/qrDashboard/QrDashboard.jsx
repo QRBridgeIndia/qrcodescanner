@@ -40,7 +40,9 @@ function QrDashboard() {
           alt="Scan Old QR Code"
           className="object-contain w-8 md:w-8 aspect-square"
         />
-        <div className="grow shrink my-auto whitespace-nowrap">Scan QR Code</div>
+<div className="grow shrink my-auto whitespace-nowrap font-bold" style={{ color: "#0077B6" }}>
+  Scan QR Code
+</div>
       </div>
     </div>
       {features.map((feature, index) => (
