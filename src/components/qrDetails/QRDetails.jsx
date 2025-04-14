@@ -74,7 +74,7 @@ export function QRDetails({setHideFooter}) {
           "Content-Type": "multipart/form-data",
         },
       });
-
+      console.log("response data",response)
       console.log(`Product ${newStatus ? "Activated" : "Deactivated"}:`, response.data);
       alert(`Product ${newStatus ? "Activated" : "Deactivated"} Successfully!`);
 
@@ -83,6 +83,7 @@ export function QRDetails({setHideFooter}) {
         is_active: newStatus,
       }));
       setRefresh((prev) => !prev);
+      setQr(response.data.qr_code_details.qr_image);
 
     } catch (error) {
       console.error("Error updating status:", error);
@@ -109,11 +110,7 @@ export function QRDetails({setHideFooter}) {
       <Header title="Details" />
       <div className="flex flex-col px-3 mt-3 w-full max-md:max-w-full">
         {/* Image Gallery with Skeleton */}
-        {loading ? (
-          <Skeleton height={200} width={"100%"} />
-        ) : (
-          <ImageGallery qr={productDetails.qr_code_details?.qr_image} product={productDetails?.image} />
-        )}
+          <ImageGallery qr={qr} product={productDetails?.image} />
         {/* Info Fields with Skeleton */}
         <div className="flex flex-col items-start mt-6 ml-5 max-w-full font-medium w-[161px] max-md:ml-2.5  whitespace-pre-line break-words overflow-hidden">
           {infoFields.map((field, index) => (

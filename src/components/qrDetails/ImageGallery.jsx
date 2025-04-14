@@ -2,10 +2,10 @@ import * as React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-export function ImageGallery({ product, qr }) {
+export function ImageGallery({ qr,product }) {
   const [qrLoading, setQrLoading] = React.useState(true);
   const [productLoading, setProductLoading] = React.useState(true);
-
+  console.log(qr,"fetched qr value");
   return (
     <div className="flex gap-5 self-center max-w-full w-[100px]">
       {/* QR Code Image with Skeleton */}
