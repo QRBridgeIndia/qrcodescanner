@@ -8,6 +8,7 @@ import { useCustomNavigate } from "../../functions/navigate";
 import apiClient from "../../api/apiClient";
 
 function AccountSetup() {
+  const [otpSent, setOtpSent] = React.useState(false);
   const { phone } = useQueryData();
   const navigate = useCustomNavigate();
   // State to store form data
@@ -86,7 +87,14 @@ function AccountSetup() {
           onChange={(gender) => handleInputChange("gender", gender)}
         />
 
-        <Button text="Send OTP" variant="full" className="mt-10" />
+        {/* <Button text="Send OTP" variant="full" className="mt-10" /> */}
+        <Button
+          text="Send OTP"
+          variant="full"
+          className="mt-10"
+          onClick={() => setOtpSent(true)}
+          disabled={otpSent}
+        />
       </div>
     </form>
   );
