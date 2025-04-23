@@ -7,7 +7,7 @@ import { Header } from "../loginForm/Header";
 import apiClient from "../../api/apiClient";
 import { useCustomNavigate } from "../../functions/navigate";
 import { useQueryData } from "../../functions/useQueryData";
-import imageCompression from 'browser-image-compression';
+// import imageCompression from 'browser-image-compression';
 
 export default function ProfilePage() {
   const navigate = useCustomNavigate();
@@ -53,45 +53,45 @@ export default function ProfilePage() {
     });
   };
 
-  // const handleImageChange = (event) => {
-  //   const file = event.target.files[0];
-  //   if (file && file.type.startsWith("image/")) {
-  //     setFormData((prev) => ({
-  //       ...prev,
-  //       image: file,
-  //     }));
-  //   } else {
-  //     alert("Please select a valid image file.");
-  //   }
-  // };
-
-  const handleImageChange = async (event) => {
+  const handleImageChange = (event) => {
     const file = event.target.files[0];
-  
     if (file && file.type.startsWith("image/")) {
-      try {
-        const options = {
-          maxSizeMB: 1,         
-          maxWidthOrHeight: 1024, 
-          useWebWorker: true,
-        };
-  
-        const compressedFile = await imageCompression(file, options);
-        console.log("Original size:", file.size / 1024, "KB");
-        console.log("Compressed size:", compressedFile.size / 1024, "KB");
-  
-        setFormData((prev) => ({
-          ...prev,
-          image: compressedFile,
-        }));
-      } catch (error) {
-        console.error("Image compression error:", error);
-        alert("Failed to compress image.");
-      }
+      setFormData((prev) => ({
+        ...prev,
+        image: file,
+      }));
     } else {
       alert("Please select a valid image file.");
     }
-  };  
+  };
+
+  // const handleImageChange = async (event) => {
+  //   const file = event.target.files[0];
+  
+  //   if (file && file.type.startsWith("image/")) {
+  //     try {
+  //       const options = {
+  //         maxSizeMB: 1,         
+  //         maxWidthOrHeight: 1024, 
+  //         useWebWorker: true,
+  //       };
+  
+  //       const compressedFile = await imageCompression(file, options);
+  //       console.log("Original size:", file.size / 1024, "KB");
+  //       console.log("Compressed size:", compressedFile.size / 1024, "KB");
+  
+  //       setFormData((prev) => ({
+  //         ...prev,
+  //         image: compressedFile,
+  //       }));
+  //     } catch (error) {
+  //       console.error("Image compression error:", error);
+  //       alert("Failed to compress image.");
+  //     }
+  //   } else {
+  //     alert("Please select a valid image file.");
+  //   }
+  // };  
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -4,7 +4,7 @@ import { InputFieldAddItem } from "./InputFieldAddItem";
 import { Header } from "../loginForm/Header";
 import { useCustomNavigate } from "../../functions/navigate";
 import { useQueryData } from "../../functions/useQueryData";
-import imageCompression from 'browser-image-compression';
+// import imageCompression from 'browser-image-compression';
 import apiClient from "../../api/apiClient";
 
 const privacySettings = [
@@ -60,31 +60,31 @@ function QRDetailsForm() {
     }));
   };
 
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     setPhoto(file); 
-  //   }
-  // };
-
-  const handleFileChange = async (e) => {
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if(!file)return;
-    try {
-      const options = {
-        maxSizeMB: 1, 
-        maxWidthOrHeight: 1024, 
-        useWebWorker: true,
-      };
-  
-      const compressedFile = await imageCompression(file, options);
-      setPhoto(compressedFile);
-      console.log('Original file size:', file.size / 1024, 'KB');
-      console.log('Compressed file size:', compressedFile.size / 1024, 'KB');
-    } catch (error) {
-      console.error('Image compression error:', error);
+    if (file) {
+      setPhoto(file); 
     }
   };
+
+  // const handleFileChange = async (e) => {
+  //   const file = e.target.files[0];
+  //   if(!file)return;
+  //   try {
+  //     const options = {
+  //       maxSizeMB: 1, 
+  //       maxWidthOrHeight: 1024, 
+  //       useWebWorker: true,
+  //     };
+  
+  //     const compressedFile = await imageCompression(file, options);
+  //     setPhoto(compressedFile);
+  //     console.log('Original file size:', file.size / 1024, 'KB');
+  //     console.log('Compressed file size:', compressedFile.size / 1024, 'KB');
+  //   } catch (error) {
+  //     console.error('Image compression error:', error);
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
