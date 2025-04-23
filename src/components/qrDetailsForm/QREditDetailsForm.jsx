@@ -4,6 +4,7 @@ import { InputFieldAddItem } from "./InputFieldAddItem";
 import { Header } from "../loginForm/Header";
 import { useCustomNavigate } from "../../functions/navigate";
 import apiClient from "../../api/apiClient";
+import imageCompression from 'browser-image-compression';
 import { useParams } from "react-router-dom";
 
 const privacySettings = [
@@ -44,12 +45,9 @@ function QREditForm() {
           id: data.id,
           qr_code_id: data.qr_code_details?.qr_code_id || "",
           switches: {
-            show_personal_info: data.
-              qr_code_details.show_personal_info,
-            show_emergency_contacts: data.
-              qr_code_details.show_emergency_contacts,
-            show_address: data.
-              qr_code_details.show_address,
+            show_personal_info: data.qr_code_details.show_personal_info,
+            show_emergency_contacts: data.qr_code_details.show_emergency_contacts,
+            show_address: data.qr_code_details.show_address,
           },
         });
         setLoading(false);
@@ -77,10 +75,29 @@ function QREditForm() {
     }));
   };
 
-  const handleFileChange = (e) => {
+  // const handleFileChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     setPhoto(file);
+  //   }
+  // };
+
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setPhoto(file);
+    if(!file)return;
+    try {
+      const options = {
+        maxSizeMB: 1, 
+        maxWidthOrHeight: 1024, 
+        useWebWorker: true,
+      };
+  
+      const compressedFile = await imageCompression(file, options);
+      setPhoto(compressedFile);
+      console.log('Original file size:', file.size / 1024, 'KB');
+      console.log('Compressed file size:', compressedFile.size / 1024, 'KB');
+    } catch (error) {
+      console.error('Image compression error:', error);
     }
   };
 
