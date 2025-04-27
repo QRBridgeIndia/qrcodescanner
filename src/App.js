@@ -28,6 +28,7 @@ import { useState } from "react";
 import TermsAndConditions from "./components/Terms&Policy/Terms";
 import PrivacyPolicy from "./components/Terms&Policy/Policy";
 import NewQRScanner from "./components/heroLayout/HeroLayoutNew";
+import NotFound from "./components/notFound/NotFound";
 
 function AppLayout({ children,hideFooter }) {
   const location = useLocation(); 
@@ -78,6 +79,7 @@ function App() {
           <Route path="/settings" element={<SettingsLayout />} />
           <Route path="/delete-account" element={<DeleteAccountForm />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
         </Routes>
       </AppLayout>
     </Router>
