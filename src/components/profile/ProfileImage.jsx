@@ -13,7 +13,7 @@ function ProfileImage({ data }) {
             loading="lazy"
             src={
               `${data?.image}` ||
-              "https://cdn.builder.io/api/v1/image/assets/TEMP/8bee59c66a78f4a059f878bb1cf2e9b0c595c6419042035b5c5cbcbbd24be278?placeholderIfAbsent=true&apiKey=877e8cc34e814577be2645c5cab8e8b7"
+              "https://qrbridgemedia.s3.amazonaws.com/profile_pics/Image1.png"
             }
             className="object-cover w-full h-full rounded-full"
             alt="Profile"
