@@ -25,15 +25,12 @@ function DeleteAccountForm() {
       return;
     }
 
-    console.log("Deactivating account for reason:", finalReason);
-
     try {
-      const response = await apiClient.post("/auth/deactivate/", {
+      await apiClient.post("/auth/deactivate/", {
         feedback: finalReason
       });
       Cookies.remove("authToken");
       delete apiClient.defaults.headers.common["Authorization"];
-      console.log("Account deactivated successfully", response.data);
       navigate('/');
     } catch (error) {
       console.error("Error deactivating account:", error);

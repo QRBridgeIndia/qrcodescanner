@@ -41,8 +41,7 @@ function RewardForm({ onClose, id, reward, note, is_missing, onUpdate }) {
     };
 
     try {
-      const response = await apiClient.post(`/api/products/${id}/report-lost/`, { ...myData });
-      console.log(response, "response from report lost")
+      await apiClient.post(`/api/products/${id}/report-lost/`, { ...myData });
       onUpdate(rewardAmount, noteContent);
       onClose();
     } catch (err) {
@@ -58,15 +57,13 @@ function RewardForm({ onClose, id, reward, note, is_missing, onUpdate }) {
     };
 
     try {
-      const response = await apiClient.post(`/api/products/${id}/report-lost/`, { ...myData });
-      console.log(response, "response from report found")
+      await apiClient.post(`/api/products/${id}/report-lost/`, { ...myData });
       onUpdate(0, '');
       onClose();
     } catch (err) {
       console.error("Error submitting data:", err);
     }
   };
-
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">

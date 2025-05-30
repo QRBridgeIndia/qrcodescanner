@@ -24,7 +24,6 @@ export function QRDetails({setHideFooter}) {
       try {
         setLoading(true);
         const response = await apiClient.get(`/api/products/${productId}`);
-        console.log(response, "hii")
         setQr(response.data?.qr_code_details?.qr_image);
         setProductDetails(response.data);
       } catch (err) {
@@ -63,7 +62,6 @@ export function QRDetails({setHideFooter}) {
   const handleToggleStatus = async () => {
     try {
       const newStatus = !productDetails?.is_active;
-      console.log(newStatus,"newStatus");
       const formData = new FormData();
       formData.append("is_active", newStatus);
       formData.append("name", productDetails?.name);
@@ -74,8 +72,6 @@ export function QRDetails({setHideFooter}) {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("response data",response)
-      console.log(`Product ${newStatus ? "Activated" : "Deactivated"}:`, response.data);
       alert(`Product ${newStatus ? "Activated" : "Deactivated"} Successfully!`);
 
       setProductDetails((prev) => ({

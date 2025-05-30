@@ -29,10 +29,8 @@ function AccountSetup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Form Submitted:", formData);
     try {
-      const response = await apiClient.post("/auth/register/", { ...formData });
-      // console.log(response);
+      await apiClient.post("/auth/register/", { ...formData });
       navigate("/number-verification", { phone });
     } catch (err) {
       console.log(err);

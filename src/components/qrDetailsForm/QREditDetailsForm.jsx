@@ -4,7 +4,6 @@ import { InputFieldAddItem } from "./InputFieldAddItem";
 import { Header } from "../loginForm/Header";
 import { useCustomNavigate } from "../../functions/navigate";
 import apiClient from "../../api/apiClient";
-// import imageCompression from 'browser-image-compression';
 import { useParams } from "react-router-dom";
 
 const privacySettings = [
@@ -35,8 +34,6 @@ function QREditForm() {
     const fetchData = async () => {
       try {
         const response = await apiClient.get(`/api/products/${id}`);
-        console.log(response.data, "response.data");
-
         const data = response.data;
         setFormValues({
           name: data.name,
@@ -82,25 +79,6 @@ function QREditForm() {
     }
   };
 
-  // const handleFileChange = async (e) => {
-  //   const file = e.target.files[0];
-  //   if(!file)return;
-  //   try {
-  //     const options = {
-  //       maxSizeMB: 1, 
-  //       maxWidthOrHeight: 1024, 
-  //       useWebWorker: true,
-  //     };
-  
-  //     const compressedFile = await imageCompression(file, options);
-  //     setPhoto(compressedFile);
-  //     console.log('Original file size:', file.size / 1024, 'KB');
-  //     console.log('Compressed file size:', compressedFile.size / 1024, 'KB');
-  //   } catch (error) {
-  //     console.error('Image compression error:', error);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -113,17 +91,14 @@ function QREditForm() {
     formData.append("show_emergency_contacts", formValues.switches.show_emergency_contacts);
     formData.append("show_address", formValues.switches.show_address);
     formData.append("is_active", true);
-    // formData.append("is_missing",true);
 
     if (photo) {
       formData.append("image", photo);
     }
-    const formDataObject = Object.fromEntries(formData.entries());
-    console.log(formDataObject, "formDataObject");
+    Object.fromEntries(formData.entries());
 
     try {
-      const response = await apiClient.put(`/api/products/${id}/`, formData);
-      console.log(response, "response from edit form submission")
+      await apiClient.put(`/api/products/${id}/`, formData);
       navigate(`/qr-details/${id}`);
     } catch (err) {
       console.log(err);
@@ -152,7 +127,6 @@ function QREditForm() {
           <label htmlFor="photo-upload" className="text-gray-600 font-semibold cursor-pointer">Click to Upload</label>
           {photo && <img src={URL.createObjectURL(photo)} alt="Selected" className="max-w-[100px] h-auto rounded-lg shadow-md mt-3" />}
         </div>
-        {/* <InputFieldAddItem label="Owner Name" value={formValues.owner_name} id="owner_name" onChange={handleInputChange} /> */}
         <InputFieldAddItem label="Description" value={formValues.description} id="description" multiline onChange={handleInputChange} />
         <p className="text-sm text-red-500">
           {formValues.description.length > 100 && "Description must be at most 60 characters"}

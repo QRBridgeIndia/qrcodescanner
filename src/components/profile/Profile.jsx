@@ -16,7 +16,6 @@ function Profile() {
       try {
         const response = await apiClient.get('/auth/profile/');
         setProfileDetails(response.data);
-        console.log(response.data)
       } catch (err) {
         setError(err);
       } finally {

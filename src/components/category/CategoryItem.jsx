@@ -12,18 +12,6 @@ function CategoryItem({ id,title, items,qrCodeId, className = "" }) {
         <div className="self-start text-sm font-medium tracking-normal text-zinc-500">
           {title}
         </div>
-        {/* {items.length > 0 && (
-          <div className="flex gap-3 items-center mt-4 text-xs tracking-normal text-zinc-500">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className="gap-1.5 self-stretch my-auto whitespace-nowrap"
-              >
-                🔘 {item}
-              </div>
-            ))}
-          </div>
-        )} */}
       </div>
       <img
         loading="lazy"

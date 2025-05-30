@@ -58,12 +58,10 @@ export default function QRScanner() {
   
   const fetchQrCodeData = async (scannedText) => {
     try {
-      console.log(scannedText,"scannedText");
       const qrCodeId = extractQrCodeId(scannedText);
       if (!qrCodeId) return;
 
       const response = await apiClient.get(`/api/qr-codes/${qrCodeId}/check-reg/`);
-      console.log("API Response:", response);
       const data = await response.data;
       setApiResponse(data);
       scannerRef.current.clear();

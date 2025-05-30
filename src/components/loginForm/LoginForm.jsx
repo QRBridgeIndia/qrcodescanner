@@ -26,11 +26,9 @@ function LoginForm() {
     }
 
     try {
-      const response = await apiClient.post("/auth/login/", { phone });
-      console.log(response);
+      await apiClient.post("/auth/login/", { phone });
       navigate("/number-verification", { phone });
     } catch (err) {
-      console.log(err);
       navigate("/account-setup", { phone });
     } finally {
       setIsSubmitting(false); 

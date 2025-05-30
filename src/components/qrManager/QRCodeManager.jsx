@@ -11,7 +11,6 @@ export default function QRCodeManager() {
     const getQrListData = async () => {
       try {
         const response = await apiClient.get("/api/products/");
-        console.log(response, "response in qr code manager");
         setQrCodeItems(response.data);
       } catch (err) {
         seterror(err);

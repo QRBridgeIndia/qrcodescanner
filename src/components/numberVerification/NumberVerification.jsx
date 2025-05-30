@@ -5,7 +5,6 @@ import { useCustomNavigate } from "../../functions/navigate";
 import { useQueryData } from "../../functions/useQueryData";
 import apiClient, { setAuthToken } from "../../api/apiClient";
 
-
 function NumberVerification() {
   const navigate = useCustomNavigate();
   const { phone } = useQueryData();
@@ -15,7 +14,7 @@ function NumberVerification() {
     "",
     "",
   ]);
-  const [cooldown, setCooldown] = React.useState(0); // Track cooldown in seconds
+  const [cooldown, setCooldown] = React.useState(0); 
   const [expire, setExpire] = React.useState(false);
   // Handle individual digit input
   const handleChange = (index, value) => {
@@ -27,7 +26,7 @@ function NumberVerification() {
   React.useEffect(() => {
     const firstInput = document.querySelector("input");
     if (firstInput) {
-      firstInput.focus(); // Set focus to the first input
+      firstInput.focus(); 
     }
   }, []);
 
@@ -43,10 +42,8 @@ function NumberVerification() {
       const response = await apiClient.post("/auth/verify-otp/", {
         ...myData,
       });
-      console.log(response);
       setAuthToken(response.data.access);
       
-      // localStorage.setItem("user", response.data);
       navigate("/dashboard");
     } catch (err) {
       console.log(err);
@@ -57,7 +54,7 @@ function NumberVerification() {
   // Resend OTP logic
   const handleResendOTP = async () => {
     try {
-      const response = await apiClient.post("/auth/login/", { phone });
+      await apiClient.post("/auth/login/", { phone });
     } catch (err) {
       console.log(err);
     }

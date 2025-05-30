@@ -4,7 +4,6 @@ import { InputFieldAddItem } from "./InputFieldAddItem";
 import { Header } from "../loginForm/Header";
 import { useCustomNavigate } from "../../functions/navigate";
 import { useQueryData } from "../../functions/useQueryData";
-// import imageCompression from 'browser-image-compression';
 import apiClient from "../../api/apiClient";
 
 const privacySettings = [
@@ -67,25 +66,6 @@ function QRDetailsForm() {
     }
   };
 
-  // const handleFileChange = async (e) => {
-  //   const file = e.target.files[0];
-  //   if(!file)return;
-  //   try {
-  //     const options = {
-  //       maxSizeMB: 1, 
-  //       maxWidthOrHeight: 1024, 
-  //       useWebWorker: true,
-  //     };
-  
-  //     const compressedFile = await imageCompression(file, options);
-  //     setPhoto(compressedFile);
-  //     console.log('Original file size:', file.size / 1024, 'KB');
-  //     console.log('Compressed file size:', compressedFile.size / 1024, 'KB');
-  //   } catch (error) {
-  //     console.error('Image compression error:', error);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -93,9 +73,7 @@ function QRDetailsForm() {
       setDescriptionError("Description cannot exceed 100 characters.");
       return;
     }
-  
-    console.log("Form Values Before Sending:", formValues);
-  
+    
     const formData = new FormData();
     formData.append("name", formValues.name);
     formData.append("qr_code_id", formValues.qr_code_id);
@@ -108,23 +86,16 @@ function QRDetailsForm() {
   
     if (photo) {
       formData.append("image", photo);
-      console.log("Photo added to FormData:", photo);
     } else {
       console.warn("Photo is missing!");
     }
   
-    console.log("FormData Contents:");
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}:`, value);
-    }
-  
     try {
-      const response = await apiClient.post("/api/products/", formData, {
+      await apiClient.post("/api/products/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("Response:", response);
       navigate("/qr-manager");
     } catch (err) {
       console.error("Error submitting form:", err);
@@ -175,19 +146,6 @@ function QRDetailsForm() {
             </div>
           )}
         </div>
-        {/* <InputFieldAddItem
-          label="Owner Name"
-          value={formValues.owner_name}
-          id="owner_name"
-          onChange={handleInputChange}
-        /> */}
-        {/* <InputFieldAddItem
-          label="Description"
-          value={formValues.description}
-          id="description"
-          multiline
-          onChange={handleInputChange}
-        /> */}
 
         {/* Description Input with Validation */}
         <InputFieldAddItem
